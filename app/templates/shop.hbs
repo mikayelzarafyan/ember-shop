@@ -1,0 +1,74 @@
+<div class="container">
+	<h1 class="text-center">{{#link-to 'application'}}{{model.name}}{{/link-to}}</h1>
+	<ul class="list">
+		<li class="list-row">
+			{{input type="hidden" value=shopId}}
+			<div class="input-block">
+				{{input placeholder="Product Title" value=title}}
+			</div>
+			<div class="input-block">
+				{{input type="number" placeholder="Product Qty" value=qty}}
+			</div>
+			<div class="input-block">
+				{{input type="number" placeholder="Product Price" value=price}}
+			</div>
+			<div class="action text-right">
+	    		<a href="#" class="btn btn-edit" {{action 'createProduct'}}>Add Product</a>
+	    	</div>
+		</li>
+		<li class="list-row">
+	    	<div class="title w-45 text-bold">
+	    		TITLE
+	    	</div>
+	    	<div class="title w-15 text-bold">
+	    		QTY
+	    	</div>
+	    	<div class="title w-15 text-bold">
+	    		PRICE
+	    	</div>
+	    	<div class="action w-25 text-center text-bold">
+	    		ACTIONS
+	    	</div>
+	    </li>
+	  {{#each model.products as |product index|}}
+	  	{{#if (eq showEditProduct product.id)}}
+			<li class="list-row edit-item">
+		    	<div class="title w-45">
+		    		{{input value=updateTitle}}
+		    	</div>
+		    	<div class="title w-15">
+		    		{{input type="number" value=updateQty}}
+		    	</div>
+		    	<div class="title w-15">
+		    		{{input type="number" value=updatePrice}}
+		    	</div>
+		    	<div class="action w-25 text-right">
+		    		<a href="#" class="btn btn-edit" {{action 'updateProduct' product.id}}>Update</a>
+		    		<a href="#" class="btn btn-delete" {{action 'deleteProduct' product.id}}>Delete</a>
+		    	</div>
+		    </li>
+		{{else}}
+		    <li class="list-row">
+		    	<div class="title w-45">
+		    		{{product.title}}
+		    	</div>
+		    	<div class="title w-15">
+		    		{{product.qty}}
+		    	</div>
+		    	<div class="title w-15">
+		    		{{product.price}} $
+		    	</div>
+		    	<div class="action w-25 text-right">
+		    		<a href="#" class="btn btn-edit" {{action 'editProduct' product.id}}>Edit</a>
+		    		<a href="#" class="btn btn-delete" {{action 'deleteProduct' product.id}}>Delete</a>
+		    	</div>
+		    </li>
+		{{/if}}
+	  {{/each}}
+	  	<li>
+    		<div class="title text-bold text-right">
+    			Total {{totalShopSum}} $
+    		</div>
+	    </li>
+	</ul>
+</div>

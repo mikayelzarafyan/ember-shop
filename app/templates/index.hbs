@@ -1,0 +1,39 @@
+<div class="container">
+	<h1 class="text-center">Shops</h1>
+	{{#if isShowingBody}}
+		<ul class="list">
+			<li class="list-row">
+				<div class="input-block">
+					{{input placeholder="Shop Name" value=name}}
+				</div>
+				<div class="action">
+		    		<a href="#" class="btn btn-edit" {{action 'createShop'}}>Add Shop</a>
+		    	</div>
+			</li>
+		  {{#each model as |shop index|}}
+		  	{{#if (eq showEditShop shop.id)}}
+			    <li class="list-row edit-item">
+			    	<div class="title">
+			    		{{input value=updateName}}
+			    	</div>
+			    	<div class="action">
+			    		<a href="#" class="btn btn-edit" {{action 'updateShop' shop.id}}>Update</a>
+			    		<a href="#" class="btn btn-delete" {{action 'deleteShop' shop.id}}>Delete</a>
+			    	</div>
+			    </li>
+			{{else}}
+				<li class="list-row">
+			    	<div class="title">
+			    		{{#link-to "shop" shop}}{{shop.name}}{{/link-to}}
+			    	</div>
+			    	<div class="action">
+			    		<a href="#" class="btn btn-edit" {{action 'editShop' shop.id}}>Edit</a>
+			    		<a href="#" class="btn btn-delete" {{action 'deleteShop' shop.id}}>Delete</a>
+			    	</div>
+			    </li>
+			{{/if}}
+		  {{/each}}
+		</ul>
+	{{/if}}
+	<a href="#" class="btn btn-add" {{action "toggleBody"}}>Show Shops</a>
+</div>

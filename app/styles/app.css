@@ -1,0 +1,122 @@
+body{
+	font-size: 14px;
+}
+ul{
+	padding: 0;
+	list-style-type: none;
+}
+h1{
+	text-transform: uppercase;
+}
+h1 a{
+	text-decoration: none;
+	color: #292b2c;
+}
+.container{
+	margin:auto;
+	max-width: 800px;
+	width: 100%;
+}
+.list{
+	padding: 15px;
+	border: 2px dotted #292b2c;
+	border-radius: 10px;
+	background: #eaeaea;
+}
+.list-row{
+	display: -webkit-box;
+      display: -webkit-flex;
+        display: -ms-flexbox;
+	      display: flex;
+	-webkit-box-pack: space-between;
+	  -webkit-justify-content: space-between;
+	    -ms-flex-pack: space-between;
+	      justify-content: space-between;
+	-webkit-box-align: center;
+      -webkit-align-items: center;
+        -ms-flex-align: center;
+	      align-items: center;
+	border: 1px solid #292b2c;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	padding: 15px;
+}
+
+.list-row.edit-item{
+	border-color: #d9534f;
+}
+
+.list-row.edit-item input{
+	-moz-appearance:none; /* Firefox */
+	  -webkit-appearance:none; /* Safari and Chrome */
+	    appearance:none;
+	border:none;
+	background-color: transparent;
+	padding: 5px 0;
+	outline: none;
+	border-bottom: 1px solid #292b2c;
+	max-width: 90%;
+}
+
+.list-row .title a{
+	color: #292b2c;
+	text-decoration: none;
+}
+
+.btn{
+	display: inline-block;
+	padding: 5px;
+	text-decoration: none;
+}
+.btn-edit{
+	background-color: #5cb85c;
+	color:white;
+	margin:0 5px;
+	text-transform: uppercase;
+}
+.btn-delete{
+	background-color: #d9534f;
+	color:white;
+	margin:0 5px;
+	text-transform: uppercase;
+}
+.btn-edit:hover, .btn-delete:hover, .btn-add:hover{
+	filter: brightness(85%);
+}
+.btn-add{
+	background-color: #292b2c;
+	color:white;
+	margin:0;
+	text-transform: uppercase;
+	padding: 10px 35px;
+}
+
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
+}
+.text-bold{
+	font-weight: 700;
+}
+
+.input-block input{
+	-moz-appearance:none; /* Firefox */
+	  -webkit-appearance:none; /* Safari and Chrome */
+	    appearance:none;
+	border:none;
+	background-color: transparent;
+	padding: 5px 0;
+	outline: none;
+	border-bottom: 1px solid #292b2c;
+}
+.w-25{
+	width: 25%;
+}
+.w-45{
+	width: 45%;
+}
+.w-15{
+	width: 15%;
+}
