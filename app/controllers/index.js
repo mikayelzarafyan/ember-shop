@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  	actions: {
-	    toggleBody() {
-	      this.toggleProperty('isShowingBody');
-	    },
-	    createShop(){
+    actions:{
+        toggleBody() {
+            this.toggleProperty('isShowingBody');
+        },
+        createShop() {
             let name = this.get('name');
 
             if(name){
@@ -17,18 +17,18 @@ export default Ember.Controller.extend({
 
             this.set('name', '');
         },
-        editShop(id){
+        editShop(id) {
             let shop = this.store.peekRecord('shop', id);
             this.set('showEditShop', id);
             this.set('updateName', shop.get('name'));
         },
-        updateShop(id){
+        updateShop(id) {
             let shop = this.store.peekRecord('shop', id);
             shop.set('name', this.get('updateName'));
             shop.save();
             this.toggleProperty('showEditShop');
         },
-        deleteShop(id){
+        deleteShop(id) {
 
             var shop = this.store.peekRecord('shop', id),
                 deletions = shop.get('products').map(function(product) {
@@ -40,9 +40,9 @@ export default Ember.Controller.extend({
                 .then(function() {
                     return shop.destroyRecord();
                 })
-                .catch(function(e) {
+                .catch(function(){
                 // Handle errors
                 });
         }
-  	}
+    }
 });
