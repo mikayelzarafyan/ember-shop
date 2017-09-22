@@ -32,8 +32,10 @@ export default Ember.Controller.extend({
 
             var shop = this.store.peekRecord('shop', id),
                 deletions = shop.get('products').map(function(product) {
-                return product.destroyRecord();
-            });
+                    setTimeout(function(){
+                        return product.destroyRecord();
+                    }, 500);
+                });
 
             // Ensures all products are deleted before the shop
             Ember.RSVP.all(deletions)
